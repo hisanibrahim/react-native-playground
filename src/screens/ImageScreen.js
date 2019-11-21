@@ -2,12 +2,23 @@ import React from 'react'
 import {
     View,
     Text,
+    Image
 } from 'react-native'
-
+import ImageDetail from '../components/ImageDetail'
 const ImageScreen = () => {
-    return (
-        <Text>Image Screen</Text>
-    )
+    return <View>
+        <ImageDetail
+            title="Forest"
+            imageUrl={require("../../assets/forest.jpg")}
+        />
+        <ImageDetail
+            title="Beach"
+            imageUrl={require("../../assets/beach.jpg")}
+        />
+        <ImageDetail
+            title="Mountain"
+            imageUrl={require("../../assets/mountain.jpg")}
+        />
+    </View>
 }
-
 export default ImageScreen
