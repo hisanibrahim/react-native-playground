@@ -19,6 +19,11 @@ const HomeScreen = (props) => {
             >
                 <Text style={styles.sectionTitle}>Goto Second Screen</Text>
             </TouchableOpacity>
+            <TouchableOpacity
+                onPress={() => props.navigation.navigate("Counter")}
+            >
+                <Text style={styles.sectionTitle}>Goto Counter Screen</Text>
+            </TouchableOpacity>
         </View>
     )
 }

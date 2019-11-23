@@ -4,17 +4,19 @@ import { createStackNavigator } from 'react-navigation-stack'
 import HomeScreen from './src/screens/HomeScreen'
 import SecondScreen from './src/screens/SecondScreen'
 import ImageScreen from './src/screens/ImageScreen'
+import CounterScreen from './src/screens/CounterScreen'
 
 const initialStackNavigator = createStackNavigator(
   {
     Home: HomeScreen,
     Second: SecondScreen,
-    ImageScreen: ImageScreen
+    ImageScreen: ImageScreen,
+    Counter: CounterScreen
   },
   {
     initialRouteName: 'Home',
     defaultNavigationOptions: {
-      title: 'App'
+      title: 'Hisanz React-native Playground'
     }
   }
 )
