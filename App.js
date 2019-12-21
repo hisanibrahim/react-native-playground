@@ -8,6 +8,7 @@ import CounterScreen from './src/screens/CounterScreen';
 import ColorScreen from './src/screens/ColorScreen';
 
 const initialStackNavigator = createStackNavigator(
+  //root stack navigator where all screen defined
   {
     Home: HomeScreen,
     Second: SecondScreen,

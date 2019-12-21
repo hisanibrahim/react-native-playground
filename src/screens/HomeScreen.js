@@ -1,11 +1,11 @@
 import React from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
-import styles from '../../assets/styles';
+import layoutStyles from '../../assets/styles';
 import HomeButton from '../components/HomeButton';
 const HomeScreen = ({navigation}) => {
   // Passing navigate() as call back function via props to child
   return (
-    <View style={styles.sectionContainer}>
+    <View style={layoutStyles.sectionContainer}>
       <HomeButton
         navigate={() => navigation.navigate('Color')}
         title="Goto Color Screen"

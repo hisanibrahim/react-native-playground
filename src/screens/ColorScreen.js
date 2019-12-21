@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import {View, Text, styleSheet, TouchableOpacity, FlatList} from 'react-native';
-import styles from '../../assets/styles';
+import layoutStyles from '../../assets/styles';
 
 const ColorScreen = () => {
   const [colors, setColors] = useState([]);
   console.log(colors);
   return (
-    <View style={styles.sectionContainer}>
+    <View style={layoutStyles.sectionContainer}>
       <TouchableOpacity
         onPress={() => {
           setColors([...colors, generateRandomColor()]);
