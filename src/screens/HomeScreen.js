@@ -1,31 +1,23 @@
-import React from 'react'
-import {
-    View,
-    Text,
-    StyleSheet,
-    TouchableOpacity
-} from 'react-native'
-import styles from '../../assets/styles'
-const HomeScreen = (props) => {
-    return (
-        <View style={styles.sectionContainer}>
-            <TouchableOpacity
-                onPress={() => props.navigation.navigate("ImageScreen")}
-            >
-                <Text style={styles.sectionTitle}>Goto Image Screen</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-                onPress={() => props.navigation.navigate("Second")}
-            >
-                <Text style={styles.sectionTitle}>Goto Second Screen</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-                onPress={() => props.navigation.navigate("Counter")}
-            >
-                <Text style={styles.sectionTitle}>Goto Counter Screen</Text>
-            </TouchableOpacity>
-        </View>
-    )
-}
+import React from 'react';
+import {View, Text, TouchableOpacity} from 'react-native';
+import styles from '../../assets/styles';
+import HomeButton from '../components/HomeButton';
+const HomeScreen = props => {
+  return (
+    <View style={styles.sectionContainer}>
+      <TouchableOpacity onPress={() => props.navigation.navigate('Color')}>
+        <Text style={styles.sectionTitle}>Goto Color Screen</Text>
+      </TouchableOpacity>
 
-export default HomeScreen
+      {/* TODO: Passing navigation function via props */}
+
+      <HomeButton route="ImageScreen" title="Goto Image Screen" />
+      <HomeButton route="Second" title="Goto Second Screen" />
+      <HomeButton route="Counter" title="Goto Counter Screen" />
+      <HomeButton route="ImageScreen" title="Goto Image Screen" />
+      <HomeButton route="ColorScreen" title="Goto Color Screen" />
+    </View>
+  );
+};
+
+export default HomeScreen;
