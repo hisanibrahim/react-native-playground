@@ -1,51 +1,63 @@
-import React, {useState} from 'react';
+import React, {useReducer} from 'react';
 import {View, Text, styleSheet, TouchableOpacity, FlatList} from 'react-native';
 import layoutStyles from '../../assets/styles';
 import AdjustColor from './../components/AdjustColor';
+
+const reducer = (state, action) => {
+  // state === { red: number, green: number, blue: number }
+  // action === { colorToChange: 'red' || 'green' || 'blue', amount: 15 || -15 }
+
+  switch (action.colorToChange) {
+    case 'red':
+      return state.red + action.amount > 255 || state.red + action.amount < 0
+        ? state
+        : {...state, red: state.red + action.amount};
+    case 'green':
+      return state.green + action.amount > 255 ||
+        state.green + action.amount < 0
+        ? state
+        : {...state, green: state.green + action.amount};
+    case 'blue':
+      return state.blue + action.amount > 255 || state.blue + action.amount < 0
+        ? state
+        : {...state, blue: state.blue + action.amount};
+    default:
+      return state;
+  }
+};
+
+const INCREMENT_COLOR = 15;
 const AdjustColorScreen = () => {
-  const [red, setRed] = useState(0);
-  const [green, setGreen] = useState(0);
-  const [blue, setBlue] = useState(0);
-
-  const INCREMENT_COLOR = 15;
-
-  const setColor = (color, increment) => {
-    switch (color) {
-      case 'red':
-        red + increment > 255 || red + increment < 0
-          ? null
-          : setRed(red + increment);
-        return;
-      case 'green':
-        green + increment > 255 || green + increment < 0
-          ? null
-          : setGreen(green + increment);
-        return;
-      case 'blue':
-        blue + increment > 255 || blue + increment < 0
-          ? null
-          : setBlue(blue + increment);
-        return;
-    }
-    return;
-  };
-
+  const [state, dispatch] = useReducer(reducer, {red: 0, green: 0, blue: 0});
+  const {red, green, blue} = state;
   return (
     <View style={layoutStyles.sectionContainer}>
       <AdjustColor
         title="Red"
-        incrementColor={() => setColor('red', INCREMENT_COLOR)}
-        decrementColor={() => setColor('red', -1 * INCREMENT_COLOR)}
+        incrementColor={() =>
+          dispatch({colorToChange: 'red', amount: INCREMENT_COLOR})
+        }
+        decrementColor={() =>
+          dispatch({colorToChange: 'red', amount: -1 * INCREMENT_COLOR})
+        }
       />
       <AdjustColor
         title="Green"
-        incrementColor={() => setColor('green', INCREMENT_COLOR)}
-        decrementColor={() => setColor('green', -1 * INCREMENT_COLOR)}
+        incrementColor={() => {
+          dispatch({colorToChange: 'green', amount: INCREMENT_COLOR});
+        }}
+        decrementColor={() => {
+          dispatch({colorToChange: 'green', amount: -1 * INCREMENT_COLOR});
+        }}
       />
       <AdjustColor
         title="Blue"
-        incrementColor={() => setColor('blue', INCREMENT_COLOR)}
-        decrementColor={() => setColor('blue', -1 * INCREMENT_COLOR)}
+        incrementColor={() =>
+          dispatch({colorToChange: 'blue', amount: INCREMENT_COLOR})
+        }
+        decrementColor={() =>
+          dispatch({colorToChange: 'blue', amount: -1 * INCREMENT_COLOR})
+        }
       />
       <View
         style={{
@@ -53,6 +65,7 @@ const AdjustColorScreen = () => {
           width: 150,
           backgroundColor: `rgb(${red},${green},${blue})`,
         }}></View>
+      <Text>{`rgb(${red},${green},${blue})`}</Text>
     </View>
   );
 };
