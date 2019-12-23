@@ -7,6 +7,10 @@ const HomeScreen = ({navigation}) => {
   return (
     <View style={layoutStyles.sectionContainer}>
       <HomeButton
+        navigate={() => navigation.navigate('AdjustColor')}
+        title="Adjust single color"
+      />
+      <HomeButton
         navigate={() => navigation.navigate('Color')}
         title="Goto Color Screen"
       />
