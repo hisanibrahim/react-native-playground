@@ -19,13 +19,13 @@ const HomeScreen = ({navigation}) => {
         navigate={() => navigation.navigate('ImageScreen')}
         title="Goto Image Screen"
       />
-      {/* <HomeButton
-        navigate={() => navigation.navigate('Second')}
-        title="Goto Second Screen"
-      /> */}
       <HomeButton
         navigate={() => navigation.navigate('Counter')}
         title="Goto Counter Screen"
+      />
+      <HomeButton
+        navigate={() => navigation.navigate('TextScreen')}
+        title="Goto Text Input Screen"
       />
     </View>
   );
