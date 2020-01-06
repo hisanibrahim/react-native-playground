@@ -27,6 +27,10 @@ const HomeScreen = ({navigation}) => {
         navigate={() => navigation.navigate('TextScreen')}
         title="Goto Text Input Screen"
       />
+      <HomeButton
+        navigate={() => navigation.navigate('StyleBoxScreen')}
+        title="Goto Style Box Screen"
+      />
     </View>
   );
 };

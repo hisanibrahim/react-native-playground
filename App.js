@@ -8,6 +8,7 @@ import CounterScreen from './src/screens/CounterScreen';
 import ColorScreen from './src/screens/ColorScreen';
 import AdjustColorScreen from './src/screens/AdjustColorScreen';
 import TextScreen from './src/screens/TextScreen';
+import StyleBoxScreen from './src/screens/StyleBoxScreen';
 
 const initialStackNavigator = createStackNavigator(
   //root stack navigator where all screen defined
@@ -19,6 +20,7 @@ const initialStackNavigator = createStackNavigator(
     Color: ColorScreen,
     AdjustColor: AdjustColorScreen,
     TextScreen,
+    StyleBoxScreen,
   },
   {
     initialRouteName: 'Home',
